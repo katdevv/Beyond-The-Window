@@ -1,0 +1,21 @@
+:root{
+  /*--font-ui: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;*/
+  --font-heading: 'Righteous', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --white: #ffffff;
+  --muted: rgba(255,255,255,0.7);
+  --overlay: rgba(0,0,0,0.50);
+  --card-bg: rgba(25, 28, 33, 0.7);
+  --cta: #3b82f6;
+  --cta-hover: #336ed6;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: #000;
+  color: var(--white);
+}

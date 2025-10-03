@@ -1,0 +1,60 @@
+.section {
+    background: #ffffff;
+    padding: 32px 0 72px;
+}
+
+.inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: #0b1220;
+}
+
+.caption {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: -0.03em;
+    color: #475569;
+}
+
+.player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0b1220;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+}
+
+.player::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+.player > * {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+    border-radius: 12px;
+}
