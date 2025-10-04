@@ -1,7 +1,7 @@
 import { Hero } from './components/Hero';
 import { TextSection } from './components/TextSection';
 import { VideoSection } from './components/VideoSection';
-import demoVideo from './assets/demo-vid.mp4';
+import demoVideo from './assets/nasa.mp4';
 
 export default function App() {
     return (
