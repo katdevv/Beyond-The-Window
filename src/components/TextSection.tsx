@@ -1,35 +1,52 @@
 import styles from './TextSection.module.css';
 
+type Subsection = {
+    subtitle: string;
+    text: string[];
+};
+
 type TextSectionProps = {
     pretitle?: string;
     title?: string;
-    paragraphs: string[];
+    subsections?: Subsection[];
     ctaText?: string;
     onCta?: () => void;
 };
 
 export function TextSection({
-                                pretitle = '2025 NASA Space Apps Challenge',
-                                title = 'Beyond The Window',
-                                paragraphs,
-                                ctaText = 'REGISTER ↗',
+                                pretitle,
+                                title,
+                                subsections = [],
+                                ctaText,
                                 onCta,
                             }: TextSectionProps) {
     return (
-        <section className={styles.section} aria-labelledby="text-section-title">
+        <section className={styles.section}>
             <div className={styles.inner}>
-                <div className={styles.pretitle}>{pretitle}</div>
-                <h2 id="text-section-title" className={styles.title}>{title}</h2>
+                {pretitle && <h3 className={styles.pretitle}>{pretitle}</h3>}
+                {title && <h2 className={styles.title}>{title}</h2>}
 
-                <div className={styles.body}>
-                    {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
-                </div>
+                {subsections.map((s) => (
+                    <div key={s.subtitle} className={styles.subsection}>
+                        <h4 className={styles.subtitle}>{s.subtitle}</h4>
+                        {s.text.map((t, i) => (
+                            <p key={i} className={styles.paragraph}>{t}</p>
+                        ))}
+                    </div>
+                ))}
 
-                <div className={styles.ctaRow}>
-                    <button className={styles.cta} onClick={onCta} type="button">
-                        {ctaText}
-                    </button>
-                </div>
+                {ctaText && (
+                    <div className={styles.ctaRow}>
+                        <button
+                            className={styles.cta}
+                            onClick={onCta}
+                            type="button"
+                            aria-label={ctaText}
+                        >
+                            {ctaText}
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );
